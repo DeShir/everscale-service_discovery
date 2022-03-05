@@ -43,7 +43,7 @@ function remove {
     SERVICE_ADDR=$1
     echoc "Add service $SERVICE_ADDR to $SERVICE_DISCOVERY_ADDR"
     # shellcheck disable=SC2002
-    tonos-cli --url $NETWORK call "$SERVICE_DISCOVERY_ADDR" remove "{\"addr\":SERVICE_ADDR}" --sign "$DEPLOY_DIR/$SERVICE_DISCOVERY_APP.keys.json" --abi "$COMPILE_DIR/$SERVICE_DISCOVERY_APP.abi.json"
+    tonos-cli --url $NETWORK call "$SERVICE_DISCOVERY_ADDR" remove "{\"addr\":\"$SERVICE_ADDR\"}" --sign "$DEPLOY_DIR/$SERVICE_DISCOVERY_APP.keys.json" --abi "$COMPILE_DIR/$SERVICE_DISCOVERY_APP.abi.json"
     echoc "Done."
 }
 

@@ -17,13 +17,13 @@ abstract contract ServiceDiscoveryImpl is IServiceDiscovery {
     }
 
     function remove(address addr) external override {
-        uint index = services.length - 1;
-        while(index >= 0 && services[index].addr != addr) {
-            index -= 1;
-        }
+        tvm.accept();
+        int index = int(services.length);
+        while(--index >= 0 && services[uint(index)].addr != addr) {}
 
-        if(index > 0) {
-            delete services[index];
+        if(index >= 0) {
+            services[uint(index)] = services[services.length - 1];
+            services.pop();
         }
     }
 

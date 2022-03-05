@@ -6,5 +6,4 @@ pragma AbiHeader pubkey;
 
 
 contract App is ServiceDiscoveryImpl {
-
 }
